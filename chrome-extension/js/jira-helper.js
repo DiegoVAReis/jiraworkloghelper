@@ -6,11 +6,15 @@
   }
   var jiraOptions = {}
 
+  const version = '3'
+  const resource = `/rest/api/${version}`
+  const resourceWithSource = `${resource}/search/jql?`
+
   function searchForWorklogKeysByDate (worklogDate) {
     return new Promise((resolve, reject) => {
-      var fields = 'fields=fields,key'
+      var fields = 'fields={fields,key}'
       var jql = `jql=worklogDate='${worklogDate}' AND worklogAuthor=currentUser()`
-      var url = jiraOptions.jiraUrl + '/rest/api/2/search?' + fields + '&' + jql
+      var url = jiraOptions.jiraUrl + resourceWithSource + jql + '&' + fields
 
       var config = {
         headers: headers,
@@ -31,10 +35,10 @@
   }
 
   function testConnection (options) {
-    return new Promise((resolve, reject) => {
-      var fields = 'fields=fields,key'
+    return new Promise((resolve, reject) => {      
+      var fields = 'fields={fields,key}'
       var jql = `jql=worklogAuthor=currentUser()`
-      var url = options.jiraUrl + '/rest/api/2/search?' + fields + '&' + jql
+      var url = options.jiraUrl + resourceWithSource + jql + '&' + fields
 
       if (options.user && options.password) {
         var b64 = btoa(`${options.user}:${options.password}`)
@@ -112,7 +116,7 @@
   }
 
   function getDetailedWorklogFromIssue (key) {
-    var url = `${jiraOptions.jiraUrl}/rest/api/2/issue/${key}/worklog`
+    var url = `${jiraOptions.jiraUrl}${resource}/issue/${key}/worklog`
     var config = {
       headers: headers,
       method: 'GET',
@@ -129,7 +133,7 @@
         worklogObjectArray.push({
           jira: key,
           timeSpent: worklog.timeSpent,
-          comment: worklog.comment,
+          comment: extractTextFromADF(worklog.comment),
           started: worklog.started,
           logId: worklog.id,
           status: 'saved'
@@ -192,14 +196,28 @@
   function logWork (worklog, date) {
     worklog.started = getDateInJiraFormat(date)
 
-    var url = `${jiraOptions.jiraUrl}/rest/api/2/issue/${worklog.jira}/worklog`
+    var url = `${jiraOptions.jiraUrl}${resource}/issue/${worklog.jira}/worklog`
     var config = {
       headers: headers,
       method: 'POST',
       url: url,
       data: {
         started: worklog.started,
-        comment: worklog.comment,
+        comment: {
+          content: [
+            {
+              content: [
+                {
+                  text: worklog.comment,
+                  type: "text"
+                }
+              ],
+              type: "paragraph"
+            }
+          ],
+          type: "doc",
+          version: 1
+        }, 
         timeSpent: worklog.timeSpent
       }
     }
@@ -218,14 +236,28 @@
       timeSpent: worklog.timeSpent
     }
 
-    var url = `${jiraOptions.jiraUrl}/rest/api/2/issue/${worklog.jira}/worklog/${worklog.logId}`
+    var url = `${jiraOptions.jiraUrl}${resource}/issue/${worklog.jira}/worklog/${worklog.logId}`
     var config = {
       headers: headers,
       method: 'PUT',
       url: url,
       data: {
         started: worklog.started,
-        comment: worklog.comment,
+        comment: {
+          content: [
+            {
+              content: [
+                {
+                  text: worklog.comment,
+                  type: "text"
+                }
+              ],
+              type: "paragraph"
+            }
+          ],
+          type: "doc",
+          version: 1
+        }, 
         timeSpent: worklog.timeSpent
       }
     }
@@ -244,7 +276,7 @@
       timeSpent: worklog.timeSpent
     }
 
-    var url = `${jiraOptions.jiraUrl}/rest/api/2/issue/${worklog.jira}/worklog/${worklog.logId}`
+    var url = `${jiraOptions.jiraUrl}${resource}/issue/${worklog.jira}/worklog/${worklog.logId}`
     var config = {
       headers: headers,
       method: 'DELETE',
@@ -293,6 +325,24 @@
         }
       )
     })
+  }
+
+  function extractTextFromADF(node) {
+    let result = "";
+
+    if (!node) return result;
+
+    if (node.type === "text" && node.text) {
+      result += node.text;
+    }
+
+    if (Array.isArray(node.content)) {
+      for (const child of node.content) {
+        result += extractTextFromADF(child);
+      }
+    }
+
+    return result;
   }
 
   window.JiraHelper = {
