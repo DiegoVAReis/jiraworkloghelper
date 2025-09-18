@@ -1,185 +1,380 @@
 body {
-    margin: 10px;
-  }
+  margin: 10px;
+  background-color: #fafafa;
+  color: #222;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
 
-  h1 {
-    font-size: 15px;
-  }
+h1 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
 
-  .container {
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    max-height: 548px;
-    max-width: 768px;
-    margin: 0 auto;
-  }
+.container {
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  max-height: 600px;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  .container>* {
-    margin: 10px 0;
-  }
+.container>* {
+  margin: 10px 0;
+}
 
-  .container>*:first-child {
-    margin-top: 0px;
-  }
+.container.container--hidden {
+  display: none;
+}
 
-  .container.container--hidden {
-    display: none;
-  }
+.worklog-items-table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
 
-  .worklog-items-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-  }
+.worklog-items-table td,
+.worklog-items-table th {
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 1px solid #eee;
+  word-break: normal;
+}
 
-  .worklog-items-table td {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    padding: 5px 5px;
-    border-style: solid;
-    border-width: 1px;
-    overflow: hidden;
-    word-break: normal;
-  }
+.worklog-items-table th {
+  font-weight: 600;
+  background-color: #f3f3f3;
+}
 
-  .worklog-items-table th {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px 5px;
-    border-style: solid;
-    border-width: 1px;
-    overflow: hidden;
-    word-break: normal;
-  }
+.worklog-items-table .jira-number-column-item {
+  max-width: 70px;
+}
 
-  .worklog-items-table .table-line {
-    vertical-align: top
-  }
+.worklog-items-table .time-spent-column-item {
+  max-width: 90px;
+}
 
-  .worklog-items-table .jira-number-column-item {
-    max-width: 70px;
-  }
+.worklog-items-table .comment-column-item {
+  min-width: 300px;
+  max-width: 500px;
+}
 
-  .worklog-items-table .time-spent-column-item {
-    max-width: 90px;
-  }
+.worklog-items-table input,
+.worklog-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 3px 4px;
+}
 
-  .worklog-items-table .comment-column-item {
-    min-width: 300px;
-    max-width: 500px;
-  }
+.worklog-textarea {
+  min-height: 70px;
+  resize: vertical;
+}
 
-  .worklog-items-table input {
-    width: 100%;
-    font-size: 12px;
-  }
-  .worklog-textarea
-  {
-    width: 100%;
-    font-size: 12px;
-    min-height: 70px;
-    font-size: 10px;
-  }
+.worklog.worklog--edited {
+  background-color: #fffdd7;
+}
 
-  .worklog.worklog--edited {
-    background-color: #ffffd2;
-  }
+.worklog.worklog--invalid,
+.worklog.worklog--deleted {
+  background-color: #ffe1e1;
+}
 
-  .worklog.worklog--invalid {
-    background-color: #ff9b9b;
-  }
+.worklog.worklog--saved {
+  background-color: #e1ffe7;
+}
 
-  .worklog.worklog--saved {
-    background-color: #b1ffb8;
-  }
+.worklog input.input--invalid {
+  border-color: #ff4d4d;
+}
 
-  .worklog.worklog--deleted {
-    background-color: #ff9b9b;
-  }
+.hidden {
+  display: none;
+}
 
-  .worklog input.input--invalid{
-    border-color: #ff2323;
-  }
+#loading {
+  position: fixed;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.28);
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
 
-  .hidden {
-    display: none;
-  }
+#loading img {
+  margin: 200px auto;
+  display: block;
+}
 
-  #loading {
-    position: fixed;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.28);
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-  }
+/* Section do worklog date */
+section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
 
-  #loading img {
-    margin: 200px auto;
-    display: block;
-  }
+/* Label */
+section label {
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 90px;
+}
 
+/* Input de data */
+.worklog-date-input {
+  padding: 6px 8px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+  box-sizing: border-box;
+  transition: border 0.2s, box-shadow 0.2s;
+}
 
-  .delete-button{
-    display: inline-block;
-    margin: auto;
-    width: 20px;
-    border: 1px solid #ddd;
-    border-bottom: 1px solid #aaa;
-    border-right: 1px solid #aaa;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-size: 14px;
-    height: 19px;
-    line-height: 1.5em;
-    background-image: url(/img/ic_delete_black_24dp.png);
-  }
+.worklog-date-input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 4px rgba(40, 167, 69, 0.4);
+  outline: none;
+}
 
-  .open-link-button{
-    display: inline-block;
-    margin: auto;
-    width: 20px;
-    border: 1px solid #ddd;
-    border-bottom: 1px solid #aaa;
-    border-right: 1px solid #aaa;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-size: 14px;
-    height: 19px;
-    line-height: 1.5em;
-    background-image: url(/img/open_in_new_window.png);
-    background-size: cover;
-  }
+/* Buttons */
 
-  .link-disabled {
-    pointer-events: none;
-  }
+.delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  background: #dc3545;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  text-decoration: none;
+}
 
-  .save-button {
-    margin: 10px 0;
-    width: 70px;
-    height: 50px;
-    border: 1px solid #ddd;
-    border-bottom: 1px solid #aaa;
-    border-right: 1px solid #aaa;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-size: 14px;
-    line-height: 1.5em;
-    background-image: url(/img/ic_cloud_upload_black_48dp.png);
-  }
+.delete-button .material-icons {
+  font-size: 20px;
+  color: #fff;
+}
 
-  .error_status {
-    padding: 20px;
-  }
+.delete-button:hover {
+  background: #e55362; 
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
 
-  .error_status h2 {
-    white-space: initial;
-    width: 400px;
-  }
+/**/
+
+.open-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  text-decoration: none;
+}
+
+.open-link-button .material-icons {
+  font-size: 20px;
+  color: #fff;
+}
+
+.open-link-button:hover {
+  background: #3399ff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/**/
+
+.save-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background: #28a745; 
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.save-button .material-icons {
+  font-size: 20px;
+  color: #fff;
+}
+
+.save-button:hover {
+  background: #34c759; 
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/**/
+
+.add-worklogs-button, .get-worklog-date-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 160px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff; 
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.add-worklogs-button .material-icons, 
+.get-worklog-date-button .material-icons {
+  font-size: 20px;
+  color: #fff;
+}
+
+.add-worklogs-button:hover, 
+.get-worklog-date-button:hover {
+  background: #3399ff; 
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/*End Buttons*/
+
+.error_status {
+  padding: 20px;
+  color: #a33;
+}
+
+.error_status h2 {
+  white-space: initial;
+  width: 400px;
+}
+
+/******/
+/* Dark mode */
+
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark-mode .worklog-items-table {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+}
+
+body.dark-mode .worklog-items-table td,
+body.dark-mode .worklog-items-table th {
+  border-color: #444;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+body.dark-mode .worklog-items-table th {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .worklog.worklog--edited {
+  background-color: #444422;
+}
+
+body.dark-mode .worklog.worklog--invalid,
+body.dark-mode .worklog.worklog--deleted {
+  background-color: #663333;
+}
+
+body.dark-mode .worklog.worklog--saved {
+  background-color: #335533;
+}
+
+body.dark-mode .worklog input,
+body.dark-mode .worklog-textarea {
+  background-color: #2a2a2a;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+body.dark-mode .worklog input.input--invalid {
+  border-color: #ff5555;
+}
+
+body.dark-mode section .worklog-date-input {
+  background: #2b2b2b;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+/*****/
+
+body.dark-mode .delete-button {
+  background: #a71d2a; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .delete-button:hover {
+  background: #ff4d5c; 
+}
+
+body.dark-mode .open-link-button {
+  background: #0056b3; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .open-link-button:hover {
+  background: #1e90ff; 
+}
+
+body.dark-mode .save-button {
+  background: #1e7e34; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .save-button:hover {
+  background: #2ecc71; 
+  box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .add-worklogs-button, 
+body.dark-mode .get-worklog-date-button {
+  background: #0056b3; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .add-worklogs-button:hover, 
+body.dark-mode .get-worklog-date-button:hover {
+  background: #1e90ff; 
+  box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+}
+
+/****/
+
+body.dark-mode #loading {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .error_status h2 {
+  color: #ffbaba;
+}
