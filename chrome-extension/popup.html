@@ -10,6 +10,7 @@
   <script src="js/gtm-tags.js"></script> -->
   <!-- End Google Tag Manager -->
 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <!--
@@ -27,6 +28,7 @@
   <script src="js/controller.js"></script>
   <script src="js/update-script.js"></script>
   <script src="js/popup.js"></script>
+  <script src="js/detect-dark-mode.js"></script>
 </head>
 
 <body>
@@ -39,7 +41,7 @@
     <section>
       <label for="worklogDate">Worklog Date:</label>
       <input type="date" id="worklogDate" class="worklog-date-input"/>
-      <button id="getWorklogButton" class="get-worklog-date-button">Get Worklog</button>
+      <button id="getWorklogButton" class="get-worklog-date-button"><span class="material-icons">cloud_download</span>Get Worklog</button>
     </section>
     <table class="worklog-items-table"id="worklog-items">
       <thead>
@@ -62,8 +64,8 @@
             <input name="comment" type="text" value="fixing layout bug" class="comment-input"/>
           </td>
           <td class="table-line action-column-item">
-            <a name="deleteButton" class='delete-button'></a>
-            <a target="_blank" href="" class='open-link-button'></a>
+            <a name="deleteButton" class="delete-button"><span class="material-icons">delete</span></a>
+            <a target="_blank" href="" class="open-link-button"><span class="material-icons">open_in_new</span></a>
           </td>
         </tr>
         <tr class='worklog worklog--deleted' data-status="edited" data-id="123">
@@ -77,8 +79,8 @@
             <input name="comment" type="text" value="fixing layout bug" />
           </td>
           <td class="table-line action-column-item">
-            <a name="deleteButton" class='delete-button'></a>
-            <a target="_blank" href="" class='open-link-button'></a>
+            <a name="deleteButton" class="delete-button"><span class="material-icons">delete</span></a>
+            <a target="_blank" href="" class="open-link-button"><span class="material-icons">open_in_new</span></a>
           </td>
         </tr>
         <tr class='worklog worklog--saved' data-status="edited" data-id="123">
@@ -92,20 +94,20 @@
             <input name="comment" type="text" value="fixing layout bug" />
           </td>
           <td class="table-line action-column-item">
-            <a name="deleteButton" class='delete-button'></a>
-            <a target="_blank" href="" class='open-link-button'></a>
+            <a name="deleteButton" class="delete-button"><span class="material-icons">delete</span></a>
+            <a target="_blank" href="" class="open-link-button"><span class="material-icons">open_in_new</span></a>
           </td>
         </tr>
       </tbody>
     </table>
     <h2 class="total-hours-label">Total: <span id="totalHours">2h</span></h2>
-    <button id="save" class="save-button" aria-label="Save All"></button>
+    <button id="save" class="save-button" aria-label="Save All"><span class="material-icons">cloud_upload</span> Upload</button>
     <br/>
-    <label for="worklog">Paste your formatted worklog here</label>
+    <label for="worklog">Paste your formatted worklog here:</label>
     <br/>
     <textarea class="worklog-textarea" id="worklog"></textarea>
     <br>
-    <button id="addWorklogs" class="add-worklogs-button">Add Worklogs</button>
+    <button id="addWorklogs" class="add-worklogs-button"><span class="material-icons">format_list_bulleted_add</span>Add Worklogs</button>
     <br />
     <div id="status" class="hidden"></div>
   </div>
