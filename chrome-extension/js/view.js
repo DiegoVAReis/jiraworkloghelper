@@ -328,8 +328,11 @@ window.View.Table = (function () {
     tbody.removeChild(row)
   }
 
-  function worklogDeleted (e) {
-    var row = e.srcElement.parentElement.parentElement
+  function worklogDeleted(e) {
+    e.preventDefault();
+
+    //var row = e.srcElement.parentElement.parentElement
+    var row = e.currentTarget.closest("tr");
     var worklog = getWorklogFromRow(row)
 
     if (worklog.status === 'new') {
