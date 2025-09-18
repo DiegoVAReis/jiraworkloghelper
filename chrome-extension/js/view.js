@@ -181,8 +181,8 @@ window.View.Table = (function () {
             <input aria-label="worklog comment" name="comment" type="text" value="{{comment}}" class="comment-input" />
         </td>
         <td class="table-line action-column-item">
-            <a aria-label="delete" href="#" class='delete-button'></a>
-            <a aria-label="open link" target="_blank" href="{{jiraUrl}}" class='open-link-button {{link-disabled}}'></a>
+            <a aria-label="delete" href="#" class='delete-button'><span class="material-icons">delete</span></a>
+            <a aria-label="open link" target="_blank" href="{{jiraUrl}}" class='open-link-button {{link-disabled}}'><span class="material-icons">open_in_new</span></a>
         </td>
     </tr>`
 
