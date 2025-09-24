@@ -1,18 +1,9 @@
-# Jira Worklog Tool [Archived]
+# Jira Worklog Manager
 
-> [!WARNING]
-> This repo is no longer being maintained and is currently archived.
-> If you are interested in maintaining it, feel free to fork it. Send your actively maintained fork to `alfeu.gds+jiraworklogtool@gmail.com` and I can link it in this README for future reference.
+A simple Chrome Extension that makes adding worklogs in Jira easy.  
+Originally based on the discontinued project **Jira Worklog Tool** by Alfeu Santos.  
 
-
-[Download from Chrome Web Store](https://chrome.google.com/webstore/detail/jira-worklog-tool/pekbjnkonfmgjfnbpmindidammhgmjji)
-
-[![CircleCI](https://circleci.com/gh/alfeugds/jiraworklogtool.svg?style=svg)](https://circleci.com/gh/alfeugds/jiraworklogtool)
-
-
-
-A simple Chrome Extension that allows adding worklogs in Jira easily.
-Logging your time in Jira doesn't need to be a pain anymore. If you already keep track of your tasks in a TODO list from a text file, then all you need to do is to adapt your list items to the below intuitive format:
+Logging your time in Jira doesn’t need to be a pain anymore. If you already keep track of your tasks in a TODO list or text file, you only need to adapt your list items to the following intuitive format:
 
 ```
 <Jira number> - <time spent> - <worklog details and comments>
@@ -25,16 +16,19 @@ JIRA-222 - 45m    - developing that amazing feature in the website
 DEV-456 2h 10m fixing bugs in my Pull Request
 1m updating my worklog in Jira!
 ```
-You can also omit the Jira # and time spent and add it later.
+You can also omit the Jira # and time spent, and add them later.
 
 ## Current Features
 
-* Bulk insert worklogs in Jira;
-* Converts your task list from text format to a worklog format Jira understands;
-* Log your time in Jira issues without the need to open Jira;
-* Add, edit and delete worklogs directly from the Chrome Extension;
-* Keep track of how many hours you already spent in the tasks;
-* Supports SAML and Basic Authentication with Jira app token.
+* Bulk insert worklogs into Jira  
+* Convert your task list from plain text into Jira-compatible worklogs  
+* Log your time in Jira issues without opening Jira  
+* Add, edit, and delete worklogs directly from the Chrome Extension  
+* Track how many hours you’ve already spent on tasks  
+* Supports both SAML and Basic Authentication with Jira API tokens  
+* **[NEW]** Support for Jira API v3
+* **[NEW]** Dark Mode (follows your browser’s theme)  
+* **[NEW]** Visual improvements and UI refinements  
 
 ## Getting Started
 Before using it, you need to do two things:
@@ -45,7 +39,7 @@ After that, click **Test Connection** to make sure the extension can reach Jira 
 
 If by only providing the Jira Hostname the connection fails, you'll need to configure the **Basic Authentication** with your user and password. Also, depending on the authentication method of the Jira API, you'll also need to provide an app token. If that's the case, please consult your IT department to get one.
 
-*_The extension uses the **Jira Hostname** to build the URL and API calls to the Jira instance like this: **`https://jira.atlassian.com/`**`rest/api/2/search`._
+*_The extension uses the **Jira Hostname** to build the URL and API calls to the Jira instance like this: **`https://jira.atlassian.com/`**`rest/api/3/search/jql`._
 
 ## Some Images
 
@@ -102,3 +96,8 @@ sudo apt install xvfb
 ````sh
 xvfb-run npm run test
 ````
+
+## Credits
+
+This project was originally created by [Alfeu Santos](mailto:alfeugds@gmail.com).  
+The project was discontinued and is now maintained and updated by [Diego Reis](mailto:diegovareis.dev@gmail.com).

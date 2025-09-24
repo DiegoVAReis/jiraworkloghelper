@@ -1,7 +1,7 @@
 {
   "name": "jira-log",
-  "version": "0.5.1",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Tool to facilitate the logging of hours in Jira. Updated and maintained by Diego Reis, based on the original project by Alfeu Santos.",
   "main": "jira-parser.js",
   "directories": {
     "test": "tests"
@@ -24,7 +24,13 @@
     "build-test": "node scripts/build-for-test",
     "ui-test-playground": "npm run build-test && node tests/integration/test-puppeteer"
   },
-  "author": "Alfeu Santos <alfeugds@gmail.com>",
+  "author": "Diego Reis <diegovareis.dev@gmail.com>",
+  "contributors": [
+    {
+      "name": "Alfeu Santos",
+      "email": "alfeugds@gmail.com"
+    }
+  ],
   "license": "MIT",
   "jest": {
     "testEnvironment": "jsdom"
@@ -47,7 +53,7 @@
     "puppeteer": "^1.19.0",
     "sshpk": "1.14.1"
   },
-  "repository": "https://github.com/alfeugds/jiraworklogtool.git",
+  "repository": "https://github.com/DiegoVAReis/jiraworklogtool.git",
   "dependencies": {
     "axios": "^0.21.4",
     "axios-mock-adapter": "^1.15.0",

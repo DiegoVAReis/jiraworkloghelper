@@ -14,7 +14,7 @@ const path = require('path');
 */
 
 const webStore = require('chrome-webstore-upload')({
-    extensionId: 'pekbjnkonfmgjfnbpmindidammhgmjji',
+    extensionId: '',
     clientId: process.env.CHROME_CLIENT_ID,
     clientSecret: process.env.CHROME_CLIENT_SECRET,
     refreshToken: process.env.CHROME_REFRESH_TOKEN 

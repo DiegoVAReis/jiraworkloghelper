@@ -1,10 +1,3 @@
-// const AdmZip = require('adm-zip');
-
-// // Archive the extension folder into 'chrome-extension.zip'
-// const zip = new AdmZip();
-// zip.addLocalFolder('chrome-extension');
-// zip.writeZip('chrome-extension.zip');
-
 var file_system = require('fs');
 var archiver = require('archiver');
 
