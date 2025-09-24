@@ -3,7 +3,7 @@
   "name": "Jira Worklog Manager",
   "version": "2.0.0",
   "author": "Diego Reis",
-  "description": "This extension allows the user to log the work in Jira easily.",
+  "description": "This extension allows the user to log the work into Jira easily. Originally based on the discontinued project Jira Worklog Tool by Alfeu Santos.",
   "homepage_url": "https://github.com/DiegoVAReis/jiraworklogtool",
   "icons": {
     "128": "img/icon-time-task-512x512.png"
