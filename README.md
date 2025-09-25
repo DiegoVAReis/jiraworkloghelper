@@ -1,7 +1,7 @@
 # Jira Worklog Manager
 
 A simple Chrome Extension that makes adding worklogs in Jira easy.  
-Originally based on the discontinued project **Jira Worklog Tool** by Alfeu Santos.  
+`Originally based on the discontinued project **Jira Worklog Tool** by Alfeu Santos.`  
 
 Logging your time in Jira doesn’t need to be a pain anymore. If you already keep track of your tasks in a TODO list or text file, you only need to adapt your list items to the following intuitive format:
 
@@ -31,6 +31,7 @@ You can also omit the Jira # and time spent, and add them later.
 * **[NEW]** Visual improvements and UI refinements  
 
 ## Getting Started
+
 Before using it, you need to do two things:
 - Make sure you are logged in to your Jira instance in Chrome. The extension leverages the existing authentication cookie when it is present in the browser;
 - Open the **Options** page and configure the **Jira Hostname**, which needs to point to the API services*. For example: **`https://jira.atlassian.com`**.
