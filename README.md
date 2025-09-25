@@ -45,7 +45,10 @@ If by only providing the Jira Hostname the connection fails, you'll need to conf
 
 ![Main popup screen](/screenshots/popup.png "Main Screen")
 
+![Main popup screen - Dark Mode](/screenshots/popup-dark-mode.png "Main Screen - Dark Mode")
+
 See it in action:
+
 ![Adding worklogs](/screenshots/add-worklog-sample.gif "See it in action")
 
 ## Built With
