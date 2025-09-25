@@ -1,6 +1,7 @@
 MIT License
 
 Copyright (c) 2017 Alfeu Santos
+
 Copyright (c) 2025 Diego Reis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
