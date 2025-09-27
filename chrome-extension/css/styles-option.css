@@ -1,0 +1,119 @@
+body {
+  margin: 10px;
+  background-color: #fafafa;
+  color: #222;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+h1, h3, h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.container {
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.container > * {
+  margin: 10px 0;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="token"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 6px 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 160px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff; 
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+button:hover {
+  background: #3399ff; 
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+#status {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #0078d4;
+}
+
+/******/
+/* Dark mode */
+
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark-mode h1,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: #fff;
+}
+
+body.dark-mode .container {
+  background-color: #2a2a2a;
+  border-radius: 6px;
+  padding: 30px;
+  border: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+body.dark-mode label {
+  color: #ddd;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="token"] {
+  background-color: #2a2a2a;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+body.dark-mode input:focus {
+  outline: none;
+  border-color: #0078d4;
+}
+
+
+body.dark-mode #status {
+  color: #0a84ff;
+}
