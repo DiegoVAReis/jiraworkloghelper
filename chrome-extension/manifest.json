@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Jira Worklog Manager",
-  "version": "2.0.0",
+  "name": "Jira Worklog Helper",
+  "version": "2.0.1",
   "author": "Diego Reis",
-  "description": "This extension allows the user to log the work into Jira easily. Originally based on the project Jira Worklog Tool by Alfeu S.",
-  "homepage_url": "https://github.com/DiegoVAReis/jiraworklogtool",
+  "description": "This extension allows the user to log the work into Jira easily.",
+  "homepage_url": "https://github.com/DiegoVAReis/jiraworkloghelper",
   "icons": {
     "128": "img/icon-work-log-128x128.png", 
     "256": "img/icon-work-log-256x256.png",
@@ -14,7 +14,7 @@
   "action": {
     "default_icon": "img/icon-work-log-512x512.png",
     "default_popup": "temp-popup.html",
-    "default_title": "Jira Worklog Manager"
+    "default_title": "Jira Worklog Helper"
   },
   "permissions": [
     "storage"

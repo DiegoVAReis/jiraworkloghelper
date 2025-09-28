@@ -1,4 +1,4 @@
-# Jira Worklog Manager
+# Jira Worklog Helper
 
 A simple Chrome Extension that makes adding worklogs in Jira easy.  
 `Originally based on the discontinued project **Jira Worklog Tool** by Alfeu Santos.`  
