@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Jira Worklog Helper",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Diego Reis",
   "description": "This extension allows the user to log the work into Jira easily.",
   "homepage_url": "https://github.com/DiegoVAReis/jiraworkloghelper",

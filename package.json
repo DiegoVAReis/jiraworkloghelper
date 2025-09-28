@@ -1,6 +1,6 @@
 {
   "name": "jira-worklog-helper",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Tool to facilitate the logging of hours in Jira. Updated and maintained by Diego Reis, based on the original project by Alfeu Santos.",
   "main": "jira-parser.js",
   "directories": {

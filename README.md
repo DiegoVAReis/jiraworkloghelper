@@ -48,6 +48,8 @@ If by only providing the Jira Hostname the connection fails, you'll need to conf
 
 ![Main popup screen - Dark Mode](/screenshots/popup-dark-mode.png "Main Screen - Dark Mode")
 
+![Options screen](/screenshots/options-page.png "Options Screen")
+
 See it in action:
 
 ![Adding worklogs](/screenshots/add-worklog-sample.gif "See it in action")
@@ -74,18 +76,18 @@ install dependencies:
 npm i
 ````
 
-run tests (unit and UI):
+run tests (unit and UI) - "Under maintenance":
 
 ````sh
 npm run tests
 ````
 
-UI test playground:
+UI test playground - "Under maintenance":
 
 ````sh
 npm run ui-test-playground
 ````
-## Running UI tests in Windows' wsl 2
+## Running UI tests in Windows' wsl 2 - "Under maintenance"
 
 - install xvfb with
 
